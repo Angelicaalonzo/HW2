@@ -17,9 +17,9 @@ class tDate{
         if((month > 0 && month<= 12) &&(day> 0 && day <=31) && (year>0) ){
                 
         
-        int _month = month; 
-        int  _day = day;
-        int _year = year;
+         _month = month; 
+          _day = day;
+         _year = year;
 
         }
         else
