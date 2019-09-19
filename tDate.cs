@@ -1,29 +1,31 @@
 using System;
 
 class tDate{
-        public string earliestDate = "1/1/1900"; 
-        public string LatestDate= "12/31/2100";
-        public int day; 
-        public int month; 
-        public int year; 
-        public int _month;
-        public int _day;
-        public int _year;
+        public static string earliestDate; 
+        public static string latestDate;
+         int day; 
+         int month; 
+         int year; 
+         int _month;
+         int _day;
+         int _year;
         
-
+    //Takes in int from the program.cs file and validates the input
     public tDate(int month, int day, int year)
     {
-
+//Validates the input from program.cs
         if((month > 0 && month<= 12) &&(day> 0 && day <=31) && (year>0) ){
                 
         
-         _month = month; 
-          _day = day;
-         _year = year;
+        _month = month; 
+        _day = day;
+        _year = year;
 
         }
         else
         {
+
+            //displays the alternate date when input is incorrect
             String[] splitEarly = earliestDate.Split('/');
             month = int.Parse(splitEarly[0]);
             day = int.Parse(splitEarly[1]);
@@ -33,7 +35,7 @@ class tDate{
     }
 
     
-
+ //Takes in strings from the program.cs file and validates the input
     public tDate(string date)
     {
         date.Split('/');
@@ -64,6 +66,8 @@ class tDate{
     }
 
     }
+
+    //Shows the date 
     public void showDate(char f)
     {
 
