@@ -1,63 +1,88 @@
 using System;
 
-
 class tDate{
-public string earliestDate = "1/1/1900"; 
+        public string earliestDate = "1/1/1900"; 
+        public string LatestDate= "12/31/2100";
+        public int day; 
+        public int month; 
+        public int year; 
+        public int _month;
+        public int _day;
+        public int _year;
+        
 
-
-public string LatestDate= "12/31/2100";
-public int day; 
-public int month; 
-public int year; 
-
-
-
-    public tDate(int mm, int dd, int yy)
+    public tDate(int month, int day, int year)
     {
-        if((mm > 0 && mm<= 12) &&(dd> 0 && dd <=31) && (yy>0) ){
 
-        Console.WriteLine("{0},{1},{2}",mm, dd, yy);
+        if((month > 0 && month<= 12) &&(day> 0 && day <=31) && (year>0) ){
+                
+        
+        int _month = month; 
+        int  _day = day;
+        int _year = year;
+
         }
         else
         {
             String[] splitEarly = earliestDate.Split('/');
-            int _month = Convert.ToInt32(splitEarly[0]);
-            int _day = Convert.ToInt32(splitEarly[1]);
-            int _year = Convert.ToInt32(splitEarly[2]);
-
-            Console.WriteLine("{0},{1},{2}",_month, _day,year);
-
-
+            month = int.Parse(splitEarly[0]);
+            day = int.Parse(splitEarly[1]);
+            year = int.Parse(splitEarly[2]);
         }
 
     }
+
+    
+
     public tDate(string date)
     {
         date.Split('/');
         string[] dateComp = date.Split('/');
-        month = Convert.ToInt32(dateComp[0]);
-        day = Convert.ToInt32(dateComp[1]);
-        year = Convert.ToInt32(dateComp[2]);
+        month = int.Parse(dateComp[0]);
+        day = int.Parse(dateComp[1]);
+        year = int.Parse(dateComp[2]);
 
-    if((month > 0 && month<= 12) &&(day> 0 && day <=31) && (year>0) ){
+    if((month > 0 && month<= 12) &&(day> 0 && day <=31) && (year > 0) ){
 
-        Console.WriteLine("{0},{1},{2}",month, day, year);
-    }else{
+        _month = month; 
+        _day = day; 
+        _year = year;
         
+
+    }
+    else{
+
          String[] splitEarly = earliestDate.Split('/');
-            int _month = Convert.ToInt32(splitEarly[0]);
-            int _day = Convert.ToInt32(splitEarly[1]);
-            int _year = Convert.ToInt32(splitEarly[2]);
+            _month = int.Parse(splitEarly[0]);
+            _day = int.Parse(splitEarly[1]);
+            _year = int.Parse(splitEarly[2]);
 
-            Console.WriteLine("{0},{1},{2}",_month, _day,year);
+            
+
 
 
     }
 
     }
+    public void showDate(char f)
+    {
 
-   
+        switch(f)
+            {
+            // //US Date
+             case 'U':
+            
+             Console.WriteLine("{0},{1},{2}",_month, _day, _year);
+             break;
 
-    
+             //EU Date
+            case 'E':
+            Console.WriteLine("{0},{1},{2}",_day, _month, _year);
 
+             break;
+
+        }
+
+    }
 }
+
